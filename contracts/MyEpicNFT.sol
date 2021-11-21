@@ -83,6 +83,8 @@ contract MyEpicNFT is ERC721URIStorage {
         "Tsavo"
     ];
 
+    event NewEpicNFTMinted(address sender, uint256 tokenId);
+
     // pass name of our NFTs token and it's symbol
     constructor() ERC721("KikiNFT", "KHK") {
         console.log("Checkout my NFT contract!");
@@ -200,5 +202,7 @@ contract MyEpicNFT is ERC721URIStorage {
             newItemId,
             msg.sender
         );
+
+        emit NewEpicNFTMinted(msg.sender, newItemId);
     }
 }
